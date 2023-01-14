@@ -12,10 +12,11 @@
 <body>
 <div class="content">
   <h1>Ralph & Miriam, through 60 years and beyond!</h1>
-  <h2>A selection of events in 60+ years of marriage, love, friendship, and
-    (great)(grand)parenthood.</h2>
+  <h2>A selection of events in the 60+ years of marriage, love, and friendship of our families beloved parents,
+    grandparents, and great-grandparents.</h2>
   <div class="controls">
   </div>
+  <h3 class="subtitle">Press a button above.</h3>
   <div class="stuff"></div>
 </div>
 </body>
@@ -31,6 +32,7 @@
 
   const stuff = document.querySelectorAll(".content .stuff")[0]
   const controls = document.querySelectorAll(".content .controls")[0]
+  const subtitle = document.querySelectorAll(".content .subtitle")[0]
 
   data.forEach(item => {
     const btn = document.createElement("button")
@@ -38,13 +40,21 @@
     btn.value = item.id
     btn.innerHTML = item.id
     btn.onclick = () => {
-      console.log(item.id)
       const child = document.createElement("div")
       const img = document.createElement("img")
-      img.src = "/img/tmp.png"
+      img.src = `/img/${item.imgFile}`
       child.appendChild(img)
 
-      const count = 1000
+      let count = 0;
+      if (!!item.perWeek) {
+        count = Math.floor(item.perWeek * weeks)
+      } else if (!!item.perYear) {
+        count = Math.floor(item.perYear * years)
+      }
+
+      subtitle.innerHTML = `${item.prefix} ${count} ${item.suffix}!`
+
+      stuff.innerHTML = ''
       for (let i = 0; i < count; i++) {
         stuff.appendChild(child.cloneNode(true))
       }
