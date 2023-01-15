@@ -17,11 +17,11 @@ export const data = [
     "suffix": "times together",
   },
   {
-    "id": "Channukah Candles",
-    "perYear": 44, // TODO: change to menorah's worth
+    "id": "Chanukah Candles",
+    "perYear": 44,
     "imgFile": "menorah.png",
     "prefix": "You've lit",
-    "suffix": "Channukah candles together",
+    "suffix": "Chanukah candles together",
   },
   {
     "id": "Movies Seen",
@@ -31,15 +31,15 @@ export const data = [
     "suffix": "movies together",
   },
   {
-    "id": "Gifts Given",
-    "perWeek": 1.3, // TODO: Change
+    "id": "Presents Given",
+    "perWeek": 0.8, // TODO: check
     "imgFile": "gift.png",
     "prefix": "You've given",
-    "suffix": "gifts to your family members",
+    "suffix": "presents to family",
   },
   {
     "id": "Trips to London",
-    "number": grandKids - 5, // calia, shoshie, sadie, others??
+    "number": grandKids - 5, // TODO: check - calia, shoshie, sadie, others??
     "imgFile": "london.png",
     "prefix": "You've taken",
     "suffix": "grandkids to London",
@@ -49,7 +49,7 @@ export const data = [
     "startDate": new Date("2005-01-01"), // TODO: confirm
     "perYear": 2,
     "imgFile": "road_trip.png",
-    "prefix": "You've gone back and forth between Vancouver and Winnipeg",
+    "prefix": "You've gone between Vancouver and Winnipeg",
     "suffix": "times",
   },
 ]

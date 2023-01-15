@@ -11,12 +11,14 @@
 </head>
 <body>
 <div class="content">
-  <h1>Ralph & Miriam, through 60 years and beyond!</h1>
-  <h2>A selection of events in the 60+ years of marriage, love, and friendship of our families beloved parents,
-    grandparents, and great-grandparents.</h2>
-  <div class="controls">
+  <h1>Ralph & Miriam - through 60 years and beyond!</h1>
+  <div class="control-wrapper">
+    <h2>Counting some of the events in our beloved heads of the family's 60+ years of marriage, love, and
+      friendship.</h2>
+    <div class="controls">
+    </div>
+    <h3 class="subtitle">Press a button above.</h3>
   </div>
-  <h3 class="subtitle">Press a button above.</h3>
   <div class="stuff"></div>
 </div>
 </body>
@@ -60,6 +62,11 @@
       }
 
       subtitle.innerHTML = `${item.prefix} ${count} ${item.suffix}!`
+
+      // showing entire menorahs, so divide by 9
+      if (item.id === "Chanukah Candles") {
+        count = Math.floor(count / 9)
+      }
 
       stuff.innerHTML = ''
       for (let i = 0; i < count; i++) {
