@@ -21,20 +21,25 @@
 </div>
 </body>
 <script type="module">
-  import data from './data.js'
+  import {data, kids, grandKids, greatGrandKids} from './data.js'
 
   const MARRIED = new Date("1963-01-09")
-  const NOW = new Date()
-  const ms = NOW - MARRIED
-  const years = ms / 31556952000
-  const weeks = years * 52.143
-  const days = years * 365.25
+
+  function getTime(startDate) {
+    const NOW = new Date()
+    const ms = NOW - startDate
+    const years = ms / 31556952000
+    const weeks = years * 52.143
+    const days = years * 365.25
+    return {years, weeks, days}
+  }
 
   const stuff = document.querySelectorAll(".content .stuff")[0]
   const controls = document.querySelectorAll(".content .controls")[0]
   const subtitle = document.querySelectorAll(".content .subtitle")[0]
 
   data.forEach(item => {
+    const {years, weeks, days} = getTime(item.startDate || MARRIED)
     const btn = document.createElement("button")
     btn.type = "button"
     btn.value = item.id
@@ -46,7 +51,9 @@
       child.appendChild(img)
 
       let count = 0;
-      if (!!item.perWeek) {
+      if (!!item.number) {
+        count = item.number
+      } else if (!!item.perWeek) {
         count = Math.floor(item.perWeek * weeks)
       } else if (!!item.perYear) {
         count = Math.floor(item.perYear * years)

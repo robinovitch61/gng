@@ -1,8 +1,11 @@
-const data = [
+export const kids = 12;
+export const grandKids = 21;
+export const greatGrandKids = 7;
+export const data = [
   {
     "id": "Years",
     "perYear": 1,
-    "imgFile": "years.png",
+    "imgFile": "calendar.png",
     "prefix": "You've enjoyed",
     "suffix": "years together",
   },
@@ -15,18 +18,38 @@ const data = [
   },
   {
     "id": "Channukah Candles",
-    "perYear": 44,
-    "imgFile": "channukah_candles.png",
+    "perYear": 44, // TODO: change to menorah's worth
+    "imgFile": "menorah.png",
     "prefix": "You've lit",
     "suffix": "Channukah candles together",
   },
   {
     "id": "Movies Seen",
     "perWeek": 1.3,
-    "imgFile": "movies.png",
+    "imgFile": "movie.png",
     "prefix": "You've seen",
     "suffix": "movies together",
   },
+  {
+    "id": "Gifts Given",
+    "perWeek": 1.3, // TODO: Change
+    "imgFile": "gift.png",
+    "prefix": "You've given",
+    "suffix": "gifts to your family members",
+  },
+  {
+    "id": "Trips to London",
+    "number": grandKids - 5, // calia, shoshie, sadie, others??
+    "imgFile": "london.png",
+    "prefix": "You've taken",
+    "suffix": "grandkids to London",
+  },
+  {
+    "id": "Vancouver/Winnipeg",
+    "startDate": new Date("2005-01-01"), // TODO: confirm
+    "perYear": 2,
+    "imgFile": "road_trip.png",
+    "prefix": "You've gone back and forth between Vancouver and Winnipeg",
+    "suffix": "times",
+  },
 ]
-
-export default data
