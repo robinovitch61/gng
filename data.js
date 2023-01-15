@@ -39,10 +39,10 @@ export const data = [
   },
   {
     "id": "Trips to London",
-    "number": grandKids - 5, // TODO: check - cl, sh, sa, others??
+    "number": grandKids - 3, // cl, sh, sa
     "imgFile": "london.png",
     "prefix": "You've taken",
-    "suffix": "grandkids to London",
+    "suffix": "grandkids to London (or Vancouver!)",
   },
   {
     "id": "Vancouver/Winnipeg",
