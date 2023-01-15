@@ -50,6 +50,7 @@
       const child = document.createElement("div")
       const img = document.createElement("img")
       img.src = `/img/${item.imgFile}`
+      img.loading = "lazy"
       child.appendChild(img)
 
       let count = 0;
