@@ -70,10 +70,21 @@
       }
 
       stuff.innerHTML = ''
-      for (let i = 0; i < count; i++) {
+      for (let i = 0; i < 100; i++) {
         stuff.appendChild(child.cloneNode(true))
       }
+
+      document.onscroll = () => {
+        if (stuff.getBoundingClientRect().bottom - document.body.clientHeight <= 3) {
+          if (stuff.childNodes.length < count) {
+            for (let i = 0; i < 10; i++) {
+              stuff.appendChild(child.cloneNode(true))
+            }
+          }
+        }
+      }
     }
+
     controls.appendChild(btn)
   })
 </script>
