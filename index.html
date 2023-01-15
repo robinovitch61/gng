@@ -23,7 +23,7 @@
 </div>
 </body>
 <script type="module">
-  import {data, kids, grandKids, greatGrandKids} from './data.js'
+  import { data } from './data.js'
 
   const MARRIED = new Date("1963-01-09")
 
@@ -41,7 +41,6 @@
   const subtitle = document.querySelectorAll(".content .subtitle")[0]
 
   data.forEach(item => {
-    const {years, weeks, days} = getTime(item.startDate || MARRIED)
     const btn = document.createElement("button")
     btn.type = "button"
     btn.value = item.id
@@ -53,6 +52,8 @@
       img.loading = "lazy"
       child.appendChild(img)
 
+      // determine the count and show it
+      const {years, weeks, days} = getTime(item.startDate || MARRIED)
       let count = 0;
       if (!!item.number) {
         count = item.number
@@ -61,14 +62,14 @@
       } else if (!!item.perYear) {
         count = Math.floor(item.perYear * years)
       }
-
       subtitle.innerHTML = `${item.prefix} ${count} ${item.suffix}!`
 
-      // showing entire menorahs, so divide by 9
+      // showing entire menorah in picture, so show less images than candle count (divide by 9)
       if (item.id === "Chanukah Candles") {
         count = Math.floor(count / 9)
       }
 
+      // show an initial number of images, adding more as they scroll to the bottom if necessary
       stuff.innerHTML = ''
       const initial = Math.min(count, 50)
       const addMore = 10

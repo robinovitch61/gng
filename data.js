@@ -39,7 +39,7 @@ export const data = [
   },
   {
     "id": "Trips to London",
-    "number": grandKids - 5, // TODO: check - calia, shoshie, sadie, others??
+    "number": grandKids - 5, // TODO: check - cl, sh, sa, others??
     "imgFile": "london.png",
     "prefix": "You've taken",
     "suffix": "grandkids to London",
