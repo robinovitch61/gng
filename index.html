@@ -49,7 +49,6 @@
       const child = document.createElement("div")
       const img = document.createElement("img")
       img.src = `/img/${item.imgFile}`
-      img.loading = "lazy"
       child.appendChild(img)
 
       // determine the count and show it
@@ -73,13 +72,14 @@
       stuff.innerHTML = ''
       const initial = Math.min(count, 50)
       const addMore = 10
+      const buffer = 100 // pixels from bottom before loading more
       for (let i = 0; i < initial; i++) {
         stuff.appendChild(child.cloneNode(true))
       }
 
       document.onscroll = () => {
         // if close to bottom
-        if (stuff.getBoundingClientRect().bottom - document.body.clientHeight <= 3) {
+        if (stuff.getBoundingClientRect().bottom - document.body.clientHeight <= buffer) {
           // if not showing all of them
           if (stuff.childNodes.length < count) {
             // add more
